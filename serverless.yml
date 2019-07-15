@@ -11,16 +11,12 @@ custom:
   webpack:
     webpackConfig: ./webpack.config.js
     includeModules: true
-    # Load our secret environment variables based on the current stage.
-    # Fallback to default if it is not in prod.
-    environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default}
-
 
 provider:
   name: aws
   runtime: nodejs8.10
   stage: prod
-  region: us-east-2
+  region: us-east-1
 
   # 'iamRoleStatements' defines the permission policy for the Lambda function.
   # In this case Lambda functions are granted with permissions to access DynamoDB.
